@@ -7,10 +7,14 @@ android {
     compileSdk = 34
     signingConfigs {
         getByName("debug") {
-            storeFile = rootProject.file("debug.keystore")
-            storePassword = "android"
-            keyAlias = "androiddebugkey"
-            keyPassword = "android"
+            // Uses the fixed key when debug.keystore is in the repository; otherwise the normal debug key.
+            val ks = rootProject.file("debug.keystore")
+            if (ks.exists()) {
+                storeFile = ks
+                storePassword = "android"
+                keyAlias = "androiddebugkey"
+                keyPassword = "android"
+            }
         }
     }
     defaultConfig {
