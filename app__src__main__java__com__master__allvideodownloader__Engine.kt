@@ -65,6 +65,14 @@ object Engine {
         Store.save()
         pool.execute {
             try {
+                val sp = a.getSharedPreferences("mavd_engine", 0)
+                if (!sp.getBoolean("reset2", false)) {
+                    try {
+                        java.io.File(a.noBackupFilesDir, "youtubedl-android/yt-dlp").deleteRecursively()
+                        a.getSharedPreferences("youtubedl-android", 0).edit().clear().apply()
+                    } catch (e: Throwable) { }
+                    sp.edit().putBoolean("reset2", true).apply()
+                }
                 YoutubeDL.getInstance().init(a)
                 FFmpeg.getInstance().init(a)
                 initOk = true
@@ -72,10 +80,6 @@ object Engine {
                 initErr = e.toString()
             } finally { ready.countDown() }
             notifyChange(true)
-            if (initOk) {
-                // sites change often; a fresh yt-dlp fixes most "cannot download" problems
-                try { YoutubeDL.getInstance().updateYoutubeDL(a) } catch (e: Throwable) { }
-            }
         }
         try {
             val cm = a.getSystemService(ConnectivityManager::class.java)
@@ -156,7 +160,7 @@ object Engine {
             "ffmpeg" in l || "postprocess" in l || "merg" in l -> R.string.err_merge
             else -> 0
         }
-        return if (id != 0) app.getString(id) + "\n" + m.take(220) else app.getString(R.string.err_generic) + ": " + m.take(300)
+        return if (id != 0) app.getString(id) + "\n" + m.takeLast(220) else app.getString(R.string.err_generic) + ":\n" + m.takeLast(400)
     }
 
     /* ---------------- queue control ---------------- */
