@@ -108,7 +108,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             try {
                 val i = Engine.analyze(u)
                 ui.post { if (view != null && my == token) { info = i; busy.visibility = View.GONE; render() } }
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
                 val msg = Engine.friendly(e)
                 ui.post { if (view != null && my == token) { info = null; busy.visibility = View.GONE; error.text = msg; error.visibility = View.VISIBLE; render() } }
             }
@@ -163,6 +163,9 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
         val l = Store.tasks.filter { it.status != St.COMPLETED && it.status != St.FAILED && it.status != St.CANCELLED }.map { it.copy() }
         adapter.submitList(l)
         queueEmpty.visibility = if (l.isEmpty()) View.VISIBLE else View.GONE
+        if (Engine.initErr.isNotEmpty() && busy.visibility != View.VISIBLE) {
+            error.text = getString(R.string.err_init) + ": " + Engine.initErr.take(300); error.visibility = View.VISIBLE
+        }
     }
 
     /* ---------- add to queue ---------- */

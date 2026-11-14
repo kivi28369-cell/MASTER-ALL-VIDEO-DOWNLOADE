@@ -5,12 +5,20 @@ plugins {
 android {
     namespace = "com.master.allvideodownloader"
     compileSdk = 34
+    signingConfigs {
+        getByName("debug") {
+            storeFile = rootProject.file("debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
+    }
     defaultConfig {
         applicationId = "com.master.allvideodownloader"
         minSdk = 29
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0.0"
+        versionCode = 2
+        versionName = "1.0.1"
         ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
     }
     compileOptions {

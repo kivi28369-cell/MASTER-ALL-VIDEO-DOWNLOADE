@@ -68,9 +68,14 @@ object Engine {
                 YoutubeDL.getInstance().init(a)
                 FFmpeg.getInstance().init(a)
                 initOk = true
-            } catch (e: Exception) {
-                initErr = e.message ?: ""
+            } catch (e: Throwable) {
+                initErr = e.toString()
             } finally { ready.countDown() }
+            notifyChange(true)
+            if (initOk) {
+                // sites change often; a fresh yt-dlp fixes most "cannot download" problems
+                try { YoutubeDL.getInstance().updateYoutubeDL(a) } catch (e: Throwable) { }
+            }
         }
         try {
             val cm = a.getSystemService(ConnectivityManager::class.java)
@@ -151,7 +156,7 @@ object Engine {
             "ffmpeg" in l || "postprocess" in l || "merg" in l -> R.string.err_merge
             else -> 0
         }
-        return if (id != 0) app.getString(id) else app.getString(R.string.err_generic) + ": " + m.take(160)
+        return if (id != 0) app.getString(id) + "\n" + m.take(220) else app.getString(R.string.err_generic) + ": " + m.take(300)
     }
 
     /* ---------------- queue control ---------------- */
@@ -311,7 +316,7 @@ object Engine {
             t.progress = 100; t.done = t.size; t.total = t.size; t.speed = ""; t.eta = ""; t.message = ""
             t.finished = System.currentTimeMillis(); t.status = St.COMPLETED
             record(t)
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             val req = stopReq[t.id]
             t.speed = ""; t.eta = ""
             if (req == "pause") {
