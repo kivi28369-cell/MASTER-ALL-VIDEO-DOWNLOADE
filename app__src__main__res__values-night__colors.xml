@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#070B16</color>
+    <color name="surface">#111B33</color>
+    <color name="on_surface">#E8EEFC</color>
+    <color name="muted">#8FA0C4</color>
+    <color name="outline">#1D2A4D</color>
+    <color name="container">#1B3A74</color>
+    <color name="on_container">#D6E4FF</color>
+    <color name="thumb_bg">#1D2A4D</color>
+    <color name="danger">#FF6B6B</color>
+    <bool name="light_bars">false</bool>
+</resources>
