@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MASTER ALL VIDEO DOWNLOADER</string>
+    <string name="paste_hint">Paste a video link</string>
+    <string name="analyze">Analyze link</string>
+    <string name="download">Add to download queue</string>
+    <string name="queue_title">Downloads</string>
+    <string name="history_title">History</string>
+    <string name="no_history">No downloads yet.</string>
+    <string name="preparing">Preparing the downloader engine…</string>
+    <string name="ready">Ready. Paste a link.</string>
+    <string name="analyzing">Analyzing…</string>
+    <string name="invalid_link">Please enter a valid link starting with http.</string>
+    <string name="waiting">waiting in queue</string>
+    <string name="saved_to">Saved to</string>
+    <string name="err_init">Engine could not start</string>
+    <string name="err_generic">Failed</string>
+    <string name="lang_btn">বাংলা / English</string>
+    <string name="theme_btn">Dark / Light</string>
+    <string-array name="quality_options">
+        <item>Best quality (MP4)</item>
+        <item>Up to 720p (MP4)</item>
+        <item>Up to 480p (MP4)</item>
+        <item>Audio only (MP3)</item>
+    </string-array>
+</resources>

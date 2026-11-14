@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MASTER ALL VIDEO DOWNLOADER</string>
+    <string name="paste_hint">ভিডিওর লিংক পেস্ট করুন</string>
+    <string name="analyze">লিংক বিশ্লেষণ করুন</string>
+    <string name="download">ডাউনলোড তালিকায় যোগ করুন</string>
+    <string name="queue_title">ডাউনলোড</string>
+    <string name="history_title">ইতিহাস</string>
+    <string name="no_history">এখনো কিছু ডাউনলোড হয়নি।</string>
+    <string name="preparing">ডাউনলোড ইঞ্জিন প্রস্তুত হচ্ছে…</string>
+    <string name="ready">প্রস্তুত। লিংক পেস্ট করুন।</string>
+    <string name="analyzing">বিশ্লেষণ চলছে…</string>
+    <string name="invalid_link">http দিয়ে শুরু হওয়া সঠিক লিংক দিন।</string>
+    <string name="waiting">তালিকায় অপেক্ষায়</string>
+    <string name="saved_to">সংরক্ষিত হয়েছে:</string>
+    <string name="err_init">ইঞ্জিন চালু হয়নি</string>
+    <string name="err_generic">ব্যর্থ হয়েছে</string>
+    <string name="lang_btn">বাংলা / English</string>
+    <string name="theme_btn">ডার্ক / লাইট</string>
+    <string-array name="quality_options">
+        <item>সেরা মান (MP4)</item>
+        <item>৭২০p পর্যন্ত (MP4)</item>
+        <item>৪৮০p পর্যন্ত (MP4)</item>
+        <item>শুধু অডিও (MP3)</item>
+    </string-array>
+</resources>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:padding="16dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/app_name" android:textSize="22sp" android:textStyle="bold" android:paddingBottom="12dp" />
+        <EditText android:id="@+id/url" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:hint="@string/paste_hint" android:inputType="textUri" android:minHeight="48dp" />
+        <Button android:id="@+id/btnAnalyze" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/analyze" />
+        <TextView android:id="@+id/status" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:paddingTop="8dp" android:paddingBottom="8dp" />
+        <ImageView android:id="@+id/thumb" android:layout_width="match_parent" android:layout_height="180dp"
+            android:adjustViewBounds="true" android:contentDescription="@null" android:visibility="gone" />
+        <TextView android:id="@+id/vtitle" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:textStyle="bold" android:paddingTop="8dp" />
+        <Spinner android:id="@+id/quality" android:layout_width="match_parent" android:layout_height="48dp"
+            android:entries="@array/quality_options" />
+        <Button android:id="@+id/btnDownload" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/download" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/queue_title" android:textStyle="bold" android:paddingTop="16dp" />
+        <LinearLayout android:id="@+id/queueList" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:orientation="vertical" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="@string/history_title" android:textStyle="bold" android:paddingTop="16dp" />
+        <TextView android:id="@+id/history" android:layout_width="match_parent" android:layout_height="wrap_content" />
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:paddingTop="16dp">
+            <Button android:id="@+id/btnLang" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="@string/lang_btn" />
+            <Button android:id="@+id/btnTheme" android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:text="@string/theme_btn" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
